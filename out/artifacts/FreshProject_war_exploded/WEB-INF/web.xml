@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    /*
+    这部分是注册一个servlet的标签 ，第一步会先找到 url
+    第二部然后根据url找到servlet 的name
+    第三部是根据servlet的name再去找到跟他名字相同的servlet标签 下面的servlet-class文件
+    */
+<context-param>
+    <param-name>encoding</param-name>
+    <param-value>utf-8</param-value>
+</context-param>
+
+
+
+
+
+</web-app>
+
+
+
+
+
+
+
+
