@@ -44,15 +44,24 @@
                         <li>请选择性别</li>
                     </ul>
                 </div>
-
+                <div id="sucess-info" style="display: none" class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span
+                            aria-hidden="false">&times;</span><span class="sr-only">Close</span></button>
+                    <strong>成功！</strong> 操作成功提示
+                </div>
+                <!-- 失败提示框 -->
+                <div id="fail-info" style="display: none" class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <strong>失败！</strong> 操作失败提示
+                </div>
                 <!-- 自定义内容 -->
                 <div class="panel panel-default">
                     <div class="panel-heading">新增生鲜种类</div>
                     <div class="panel-body">
-                        <form action="addCategory" method="post" class="form-horizontal" role="form">
+                        <form action="category" method="post" class="form-horizontal" role="form">
                             <div class="form-group">
-                                <input type="hidden" name="method" val
-                                       ue="addCategory">
+                                <input type="hidden" name="method" value="addCategory">
                                 <label class="col-sm-2 control-label">名称</label>
                                 <div class="col-sm-5">
                                     <input type="text" name="c_name" class="form-control" placeholder="生鲜名称">
@@ -109,8 +118,46 @@
     </div>
 </div>
 
+<script src="static/js/jquery-3.1.0.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<%
+    System.out.println(response.getStatus() + "--------------status");
+    if (response.getStatus() == 201) {
+        out.write("<script type=\"text/javascript\">\n" +
+                "    window.onload=function(){\n" +
+                "        showdiv();\n" +
+                "       }</script>");
+    } else if (response.getStatus() == 200) {
+
+    } else {
+        out.write("<script type=\"text/javascript\">\n" +
+                "    window.onload=function(){\n" +
+                "        hidediv();\n" +
+                "       }</script>");
+    }
+
+%>
 
 
+<script>
+
+
+    function showdiv() {
+
+        document.getElementById('sucess-info').style.display = 'block';//show的display属性设置为block（显示）
+        document.getElementById('fail-info').style.display = 'none';//show的display属性设置为block（显示）
+
+
+    }
+    function hidediv() {
+
+
+        document.getElementById('fail-info').style.display = 'block';
+        document.getElementById('sucess-info').style.display = 'none';//show的display属性设置为none（隐藏）
+
+
+    }
+</script>
 
 </body>
 </html>

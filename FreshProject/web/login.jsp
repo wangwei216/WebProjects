@@ -21,7 +21,7 @@
         <p>密码：<input type="password" id="p" name="password" value="${cookie.password.value}"></p>
             <input type="hidden" name="method" value="login">
         <input type="submit" value="登录">
-       <p> <font size="2">记住密码：</font><input type="checkbox" name="remeber" value="yes"></p>
+       <p> <font size="2">记住密码：</font><input type="checkbox" name="remember" value="yes"></p>
     </form>
 </div>
 

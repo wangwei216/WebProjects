@@ -7,7 +7,6 @@ import webPackage.service.UserService;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -15,13 +14,13 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.Map;
 /*
-一、如何抽取servlet把登录和注册放到一个user的servlet中（这个也就是以后框架会帮我们所提供的）
-    1.
+
 *
 * */
 @WebServlet(name = "UserServlet",urlPatterns = "/user")
-public class UserServlet extends HttpServlet {
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class UserServlet extends BaseServlet {
+
+   /*     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
             //如果要是再doPost中发起的话，需要再调用一下doGet方法
             doGet(request,response);
@@ -38,7 +37,7 @@ public class UserServlet extends HttpServlet {
             }
 
     }
-
+*/
     public void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String name = request.getParameter("name");
@@ -93,8 +92,8 @@ public class UserServlet extends HttpServlet {
 
 
         if (user!=null){  //如果user不等于空，说明登录成功，否则登录失败
-            String remeber = request.getParameter("remeber");
-            if (remeber.equals(result)){
+            String remember = request.getParameter("remember");
+            if (remember!=null&&remember.equals("yes")){
                 //创建相对应的cookie
                 Cookie nameCookie = new Cookie("name",name);
                 Cookie passwordCookie = new Cookie("password",password);
@@ -105,14 +104,18 @@ public class UserServlet extends HttpServlet {
                 response.addCookie(nameCookie);
                 response.addCookie(passwordCookie);
                 response.setContentType("text/html;charset=utf-8");
-//               response.sendRedirect("category-add.jsp");
+//                response.getWriter().write("我是测试一下，说明当我登录成功 的话 就会到这个界面");
+//                  response.sendRedirect("category-add.jsp");
                 //当你登录的时候，首先需要先访问getCategoryList获得数据，然后传入生鲜集合
-                response.sendRedirect(request.getContextPath()+"/category-list.jsp" );
+                //这部分是为了得到登录用户的session，
+                request.getSession().setAttribute("user",user);
+                response.sendRedirect(request.getContextPath()+
+                        "/category?method=getCategoryList&currentPage=1&currentCount=10");
 
             }
             else {
                 response.setContentType("text/html;charset=utf-8");
-//                response.getWriter().write("说明我登录成功了，但是我是自己用密码登录进来的没有选记住密码");
+              response.getWriter().write("说明我登录成功了，但是我是自己用密码登录进来的没有选记住密码");
             }
 
         }else {

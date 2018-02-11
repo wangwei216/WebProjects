@@ -1,11 +1,13 @@
 package webPackage.bean;
 
+import java.util.Date;
+
 public class Category {
 
     private int c_id;
     private  String c_name;
     private  String place;
-    private String createtime;
+    private Date createtime;
     private int type;
 
     public int getC_id() {
@@ -32,11 +34,11 @@ public class Category {
         this.place = place;
     }
 
-    public String getCreatetime() {
+    public Date getCreatetime() {
         return createtime;
     }
 
-    public void setCreatetime(String createtime) {
+    public void setCreatetime(Date createtime) {
         this.createtime = createtime;
     }
 
@@ -47,6 +49,8 @@ public class Category {
     public void setType(int type) {
         this.type = type;
     }
+
+
 
 
 }

@@ -1,20 +1,11 @@
 package webPackage.web;
 
-import webPackage.bean.Category;
-import webPackage.service.CategoryService;
-
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
 
 @WebServlet(name = "GetCategoryServlet",urlPatterns = "/getCategoryList")
 public class GetCategoryServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   /* protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);
 
     }
@@ -28,6 +19,7 @@ public class GetCategoryServlet extends HttpServlet {
             if (categoryList!=null&&categoryList.size()>0) {
                 //把返回的集合设置给list
                 request.setAttribute("list",categoryList);
+
                 //然后把页面分发到列表的jsp页面
                 request.getRequestDispatcher("category-list.jsp").forward(request,response);
             }else {
@@ -37,5 +29,5 @@ public class GetCategoryServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
