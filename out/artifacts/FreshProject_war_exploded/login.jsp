@@ -12,14 +12,17 @@
 </head>
 <body>
 <h1 align="center">生鲜管理系统<i><sup>2018</sup></i></h1>
-<%--action后面的值是吧数据提交到的一个jsp登录界面--%>
-    <form method="get" action="login.jsp">
-      <p>账号：<input type="text" ></p>
-        <p>密码：<input type="text"></p>
-        <input type="submit" value="登录">
-    </form>
-<div class="login">
 
+<div class="login">
+    <%--action后面的值是吧数据提交到的一个jsp登录界面--%>
+    <form method="post" action="user">
+        <%--z这个是从本地得到用户名和密码的cookie的值--%>
+        <p>账号：<input type="text" id="id" name="name" value="${cookie.name.value}" ></p>
+        <p>密码：<input type="password" id="p" name="password" value="${cookie.password.value}"></p>
+            <input type="hidden" name="method" value="login">
+        <input type="submit" value="登录">
+       <p> <font size="2">记住密码：</font><input type="checkbox" name="remember" value="yes"></p>
+    </form>
 </div>
 
 </body>

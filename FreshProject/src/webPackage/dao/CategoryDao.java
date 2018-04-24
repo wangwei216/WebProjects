@@ -1,5 +1,6 @@
 package webPackage.dao;
 
+
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -9,7 +10,16 @@ import webPackage.bean.Category;
 import java.sql.SQLException;
 import java.util.List;
 
-
+/*
+ArrayHandler：把结果集中的第一行数据转成对象数组。
+ArrayListHandler：把结果集中的每一行数据都转成一个数组，再存放到List中。
+BeanHandler：将结果集中的第一行数据封装到一个对应的JavaBean实例中。
+BeanListHandler：将结果集中的每一行数据都封装到一个对应的JavaBean实例中，存放到List里。
+ColumnListHandler：将结果集中某一列的数据存放到List中。
+KeyedHandler(name)：将结果集中的每一行数据都封装到一个Map里，再把这些map再存到一个map里，其key为指定的key。
+MapHandler：将结果集中的第一行数据封装到一个Map里，key是列名，value就是对应的值。
+MapListHandler：将结果集中的每一行数据都封装到一个Map里，然后再存放到List
+*/
 public class CategoryDao {
     //这个是判断在把数据存给数据库的时候有没有插入数据成功
     public boolean addCategory(Category category) throws SQLException {

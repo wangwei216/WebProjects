@@ -13,14 +13,22 @@
     <param-value>utf-8</param-value>
 </context-param>
 
+<filter>
+    <filter-name>first</filter-name>
+    <filter-class>testFliter.FirstFliter</filter-class>
+    <init-param>
+        <param-name>name</param-name>
+        <param-value>wangwei</param-value>
+    </init-param>
+</filter>
 
-    
-    <servlet-mapping>
-        <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/hi</url-pattern>
 
+    <filter-mapping>
+    <filter-name>first</filter-name>
+    <url-pattern>/*</url-pattern>
+        <dispatcher></dispatcher>
+</filter-mapping>
 
-    </servlet-mapping>
 </web-app>
 
 

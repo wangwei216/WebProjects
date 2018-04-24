@@ -82,7 +82,6 @@ public class CategoryService {
     }
 
     public boolean deleteCategory(Category category) throws SQLException {
-
         CategoryDao dao = new CategoryDao();
         boolean deleteCategory = dao.deleteCategory(category);
         return deleteCategory;

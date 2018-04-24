@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/FreshProject/FileDeal.iml" filepath="$PROJECT_DIR$/FreshProject/FileDeal.iml" />
       <module fileurl="file://$PROJECT_DIR$/Filter/Filter.iml" filepath="$PROJECT_DIR$/Filter/Filter.iml" />
       <module fileurl="file://$PROJECT_DIR$/FreshProject/FreshProject.iml" filepath="$PROJECT_DIR$/FreshProject/FreshProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/JDBC/JDBC.iml" filepath="$PROJECT_DIR$/JDBC/JDBC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JDBC/OtherProjects.iml" filepath="$PROJECT_DIR$/JDBC/OtherProjects.iml" />
       <module fileurl="file://$PROJECT_DIR$/listener/listener.iml" filepath="$PROJECT_DIR$/listener/listener.iml" />
     </modules>
   </component>
